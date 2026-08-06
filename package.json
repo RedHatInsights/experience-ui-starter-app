@@ -1,5 +1,5 @@
 {
-  "name": "frontend-starter-app",
+  "name": "experience-ui-starter-app",
   "version": "1.2.0",
   "private": false,
   "engines": {
@@ -67,7 +67,7 @@
     "webpack-bundle-analyzer": "4.10.2"
   },
   "insights": {
-    "appname": "frontend-starter-app"
+    "appname": "experience-ui-starter-app"
   },
   "msw": {
     "workerDirectory": [

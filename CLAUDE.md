@@ -1,7 +1,5 @@
-# Frontend Starter App
+# Experience UI Starter App
 
-> **Note:** Cypress has been removed — component testing is now handled by
-> Storybook with play functions. Cypress references below are historical.
 > See `AGENTS.md` for the current architecture patterns: feature islands,
 > ServiceContext DI, TanStack Query, and custom ESLint governance rules.
 
@@ -38,13 +36,12 @@ This is a **starter template and reference implementation** that frontend teams 
 
 ### Testing Infrastructure
 - **Unit tests**: Jest + Testing Library configured and working
-- **Component tests**: Cypress with PatternFly support
+- **Component tests**: Storybook with play functions
 - **E2E tests**: Playwright with HCC auth helpers
 - **CI/CD**: GitHub Actions workflow for automated testing
 
 ### Working Examples
 - Sample components demonstrating PatternFly usage
-- Scalprum shared stores demo (cross-app state management)
 - Chrome integration patterns
 - Routing with React Router v6
 - FEO configuration for navigation, service tiles, and search
@@ -80,7 +77,7 @@ HCC frontend applications are **micro-frontends** that run within the Chrome she
 # Click "Use this template" button on GitHub
 
 # Option B: Clone and re-initialize
-git clone https://github.com/RedHatInsights/frontend-starter-app.git my-new-app
+git clone https://github.com/RedHatInsights/experience-ui-starter-app.git my-new-app
 cd my-new-app
 rm -rf .git
 git init
@@ -141,8 +138,7 @@ npm start
 Delete or replace these example files with your actual implementation:
 - `src/Routes/` - Replace sample routes with your application routes
 - `src/Components/SampleComponent/` - Remove sample component
-- `cypress/components/SampleComponent.cy.tsx` - Remove sample test
-- `playwright/frontend-starter-app.spec.ts` - Rename or remove starter test
+- `playwright/experience-ui-starter-app.spec.ts` - Rename or remove starter test
 
 ### 5. Update Documentation
 
@@ -161,7 +157,7 @@ All dependencies are already configured in `package.json`:
 - **Micro-frontend**: Scalprum (`@scalprum/react-core`, `@scalprum/core`)
 - **Testing**:
   - **Unit**: Jest + Testing Library
-  - **Component**: Cypress
+  - **Component**: Storybook with play functions
   - **E2E**: Playwright
 - **Linting**: ESLint with `@redhat-cloud-services/eslint-config-redhat-cloud-services`
 - **Node Requirements**: Node >=18.20.8, npm >=8.19.4
@@ -171,26 +167,18 @@ All dependencies are already configured in `package.json`:
 ## Project Structure
 
 ```
-frontend-starter-app/
+experience-ui-starter-app/
 ├── src/
 │   ├── Components/         # Reusable React components
-│   ├── Routes/            # Page-level route components
-│   │   └── SharedStoresDemo/  # Scalprum shared stores example
 │   ├── index.tsx          # Entry point
 │   └── RootApp.tsx        # Root application component
 ├── config/                # Webpack and build configuration
-├── build-tools/           # Git submodule (insights-frontend-builder-common)
 ├── deploy/
 │   └── frontend.yaml      # Frontend Operator configuration
-├── cypress/
-│   └── components/        # Cypress component tests (*.cy.tsx)
 ├── playwright/            # Playwright e2e tests (*.spec.ts)
 ├── docs/                  # Documentation
 │   ├── frontend-operator/ # FEO configuration guides
-│   ├── scalprum-remote-hooks-shared-stores.md
-│   └── scalprum-quick-reference.md
 ├── fec.config.js          # FEC build configuration
-├── cypress.config.ts      # Cypress configuration
 └── playwright.config.ts   # Playwright configuration
 ```
 
@@ -222,7 +210,6 @@ CHROME_SERVICE=8000 npm start
 
 # Run tests while developing
 npm test -- --watch           # Unit tests in watch mode
-npm run test:cypress:open     # Interactive component testing
 
 # Lint and fix code
 npm run lint:js:fix
@@ -255,7 +242,6 @@ npm run static
 | `README.md` | Project documentation | Replace with your app's documentation |
 
 **Optional configuration**:
-- `cypress.config.ts` - Cypress component test configuration
 - `playwright.config.ts` - Playwright e2e test configuration (update `baseURL` if needed)
 - `.github/workflows/test.yml` - CI/CD pipeline (customize as needed)
 
@@ -409,22 +395,6 @@ const MyComponent = () => {
 - `isBeta()` - Check if user is in beta environment
 - Navigation events - Listen for route changes
 
-### Scalprum Patterns (Advanced)
-
-For **cross-application state management** and **shared stores**:
-
-📖 **See working examples** in:
-- `/src/Routes/SharedStoresDemo/` - Complete implementation
-- `docs/scalprum-remote-hooks-shared-stores.md` - Full guide
-- `docs/scalprum-quick-reference.md` - Quick snippets
-
-**When to use Scalprum shared stores**:
-- Sharing state between different micro-frontends
-- Event-driven communication across applications
-- Synchronizing data without prop drilling
-
-**Most applications won't need this** — it's for advanced cross-app integration.
-
 ## Testing Strategy (Pre-configured and Ready to Use)
 
 This template includes three testing layers — all configured and working out of the box. **Add tests as you build your application** following the patterns shown in the example tests.
@@ -456,42 +426,6 @@ import SampleComponent from './SampleComponent';
 test('displays the title', () => {
   render(<SampleComponent title="Hello" />);
   expect(screen.getByText('Hello')).toBeInTheDocument();
-});
-```
-
-### Component Testing (Cypress)
-
-**Location**: `cypress/components/**/*.cy.tsx`
-
-**Commands**:
-
-```bash
-npm run test:cypress        # Run headlessly
-npm run test:cypress:open   # Interactive mode
-```
-
-**Configuration**: `cypress.config.ts`
-- Spec pattern: `cypress/components/**/*.cy.{js,jsx,ts,tsx}`
-- Uses custom webpack config: `config/webpack.cy.config.js`
-- Code coverage enabled via `@cypress/code-coverage`
-
-**Patterns**:
-- Test components in isolation with various props and states
-- Test user interactions (clicks, form inputs, etc.)
-- Test visual appearance and layout
-- Fast feedback loop without server dependencies
-
-**Example**:
-
-```tsx
-import React from 'react';
-import SampleComponent from '../../src/Components/SampleComponent';
-
-describe('SampleComponent', () => {
-  it('renders with children', () => {
-    cy.mount(<SampleComponent>Hello, World!</SampleComponent>);
-    cy.contains('Hello, World!').should('be.visible');
-  });
 });
 ```
 
@@ -540,7 +474,7 @@ npx playwright show-report       # View HTML report
   - Avoid fixed timeouts except for staging environment quirks
 - **Selectors**: Prefer role-based selectors (`getByRole`, `getByLabel`) over CSS selectors
 
-**Example** (see `playwright/frontend-starter-app.spec.ts`):
+**Example** (see `playwright/experience-ui-starter-app.spec.ts`):
 
 ```typescript
 import { test, expect } from '@playwright/test';
@@ -605,7 +539,7 @@ await login(page, process.env.E2E_USER!, process.env.E2E_PASSWORD!);
 
 **GitHub Actions** (`.github/workflows/test.yml`):
 - **Unit tests**: Run on every PR/push to master
-- **Component tests**: Run Cypress component tests on every PR
+- **Component tests**: Storybook tests run on every PR
 - **Linting**: ESLint checks enforced
 - **Coverage**: Jest coverage uploaded to Codecov
 
@@ -690,8 +624,6 @@ spec:
 | `npm test` | Run Jest unit tests |
 | `npm test -- --watch` | Run tests in watch mode |
 | `npm test -- --coverage` | Run with coverage report |
-| `npm run test:cypress` | Run Cypress component tests (headless) |
-| `npm run test:cypress:open` | Open Cypress interactive UI |
 | `npx playwright test` | Run Playwright e2e tests |
 | `npx playwright test --ui` | Open Playwright interactive UI |
 
@@ -759,13 +691,6 @@ export E2E_PASSWORD="your-password"
 npx playwright test
 ```
 
-**Problem**: Cypress component tests fail to mount
-```bash
-# Solution: Check webpack config and clear Cypress cache
-rm -rf ~/.cache/Cypress
-npm run test:cypress
-```
-
 ### Git Submodule Issues
 
 This template uses `build-tools/` as a git submodule:
@@ -786,10 +711,7 @@ git submodule update --init --recursive
 
 ### In This Repository
 
-- 📖 **Frontend Operator Guide**: `docs/frontend-operator/index.md`
-- 📖 **Scalprum Shared Stores**: `docs/scalprum-remote-hooks-shared-stores.md`
-- 📖 **Scalprum Quick Reference**: `docs/scalprum-quick-reference.md`
-- 💡 **Working Example**: `src/Routes/SharedStoresDemo/` - Cross-app state management
+- Frontend Operator Guide: `docs/frontend-operator/index.md`
 
 ### External Documentation
 
@@ -803,7 +725,6 @@ git submodule update --init --recursive
 
 - **Jest**: https://jestjs.io/ - Unit testing framework
 - **Testing Library**: https://testing-library.com/react - React testing utilities
-- **Cypress**: https://www.cypress.io/ - Component testing framework
 - **Playwright**: https://playwright.dev/ - E2E testing framework
 
 ### Getting Help
@@ -849,7 +770,7 @@ Configured in `.mcp.json` — automatically loaded when using Claude Code in thi
 ## Support and Contributions
 
 **Template Maintainers**: Platform Experience Services team
-**GitHub**: https://github.com/RedHatInsights/frontend-starter-app
+**GitHub**: https://github.com/RedHatInsights/experience-ui-starter-app
 **Issues**: Report template issues in the GitHub repository
 
 **Contributing improvements to the template**: PRs welcome! This template benefits all HCC frontend teams.

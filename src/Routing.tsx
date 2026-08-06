@@ -8,12 +8,6 @@ const SamplePage = lazy(
   () =>
     import(/* webpackChunkName: "SamplePage" */ './features/sample/SamplePage'),
 );
-const SharedStoresDemo = lazy(
-  () =>
-    import(
-      /* webpackChunkName: "SharedStoresDemo" */ './Routes/SharedStoresDemo/SharedStoresDemo'
-    ),
-);
 const OopsPage = lazy(
   () => import(/* webpackChunkName: "OopsPage" */ './Components/OopsPage'),
 );
@@ -48,10 +42,6 @@ const routes = [
   {
     path: 'oops',
     element: OopsPage,
-  },
-  {
-    path: 'shared-stores-demo',
-    element: SharedStoresDemo,
   },
   {
     path: '/',

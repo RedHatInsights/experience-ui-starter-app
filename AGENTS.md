@@ -38,7 +38,7 @@ See `src/shared/WHY-TanStackQuery.md`.
 
 ## Custom ESLint Rules
 
-Three local rules under `starter-local/*` — see `eslint-rules/README.md`.
+Three local rules under `experience-ui/*` — see `eslint-rules/README.md`.
 
 ## Reference Guide
 

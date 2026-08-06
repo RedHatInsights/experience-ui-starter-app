@@ -34,7 +34,7 @@ module.exports = defineConfig(
       parser: tsParser,
     },
     plugins: {
-      'starter-local': {
+      'experience-ui': {
         rules: {
           'require-use-table-state': requireUseTableState,
           'enforce-story-patterns': enforceStoryPatterns,
@@ -47,7 +47,7 @@ module.exports = defineConfig(
       'react/react-in-jsx-scope': 'off',
       'react/jsx-uses-react': 'off',
       '@typescript-eslint/no-unused-vars': 'error',
-      'starter-local/require-use-table-state': 'error',
+      'experience-ui/require-use-table-state': 'error',
       'no-restricted-imports': [
         'error',
         {
@@ -66,8 +66,8 @@ module.exports = defineConfig(
   {
     files: ['src/**/*.stories.@(ts|tsx)'],
     rules: {
-      'starter-local/enforce-story-patterns': 'error',
-      'starter-local/no-direct-user-type': 'error',
+      'experience-ui/enforce-story-patterns': 'error',
+      'experience-ui/no-direct-user-type': 'error',
     },
   },
 );

@@ -1,12 +1,12 @@
 # Custom ESLint Rules
 
-Local ESLint rules registered under the `starter-local` plugin namespace.
+Local ESLint rules registered under the `experience-ui` plugin namespace.
 These rules enforce patterns introduced in this starter app — they land in
 the same PR as the pattern they govern.
 
 ## Rules
 
-### `starter-local/enforce-story-patterns`
+### `experience-ui/enforce-story-patterns`
 
 **Severity:** error
 **Applies to:** `src/**/*.stories.@(ts|tsx)`
@@ -19,7 +19,7 @@ Enforces correct query patterns in Storybook play functions:
 
 See: `src/shared/StorybookPatterns.mdx`
 
-### `starter-local/require-use-table-state`
+### `experience-ui/require-use-table-state`
 
 **Severity:** error
 **Applies to:** `src/**/*.ts`, `src/**/*.tsx`
@@ -30,12 +30,12 @@ table state objects bypasses pagination, sorting, and filter sync logic.
 
 Disable with an inline comment when the hook is used in a wrapper:
 ```tsx
-// eslint-disable-next-line starter-local/require-use-table-state -- tableState provided by useRolesTable hook
+// eslint-disable-next-line experience-ui/require-use-table-state -- tableState provided by useRolesTable hook
 ```
 
 See: `src/shared/TableView.mdx`
 
-### `starter-local/no-direct-user-type`
+### `experience-ui/no-direct-user-type`
 
 **Severity:** error
 **Applies to:** `src/**/*.stories.@(ts|tsx)`

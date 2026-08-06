@@ -9,7 +9,7 @@ import {
   PageHeader,
   PageHeaderTitle,
 } from '@redhat-cloud-services/frontend-components/PageHeader';
-// eslint-disable-next-line starter-local/require-use-table-state -- tableState provided by useRolesTable hook
+// eslint-disable-next-line experience-ui/require-use-table-state -- tableState provided by useRolesTable hook
 import {
   type CellRendererMap,
   type ColumnConfigMap,

@@ -3,12 +3,12 @@
 apiVersion: v1
 kind: Template
 metadata:
-  name: frontend-starter-app
+  name: experience-ui-starter-app
 objects:
   - apiVersion: cloud.redhat.com/v1alpha1
     kind: Frontend
     metadata:
-      name: frontend-starter-app
+      name: experience-ui-starter-app
     spec:
       feoConfigEnabled: true
       serviceTiles:
@@ -33,14 +33,14 @@ objects:
           bundleId: staging
           position: 200
           navItems:
-            - id: frontend-starter-app-two
+            - id: experience-ui-starter-app-two
               title: Roles CRUD Reference
               href: /staging/starter/roles
         - segmentId: starter-app
           bundleId: staging
           position: 100
           navItems:
-            - id: frontend-starter-app
+            - id: experience-ui-starter-app
               title: Starter app link
               href: /staging/starter
       API:
@@ -48,15 +48,15 @@ objects:
           - v1
       envName: ${ENV_NAME}
       title: Starter App
-      deploymentRepo: https://github.com/RedHatInsights/frontend-starter-app
+      deploymentRepo: https://github.com/RedHatInsights/experience-ui-starter-app
       frontend:
         paths:
-          - /apps/frontend-starter-app
+          - /apps/experience-ui-starter-app
       image: ${IMAGE}:${IMAGE_TAG}
       pushCacheEnabled: true
 
       module:
-        manifestLocation: '/apps/frontend-starter-app/fed-mods.json'
+        manifestLocation: '/apps/experience-ui-starter-app/fed-mods.json'
         modules:
           - id: 'overview'
             module: './RootApp'
@@ -73,4 +73,4 @@ parameters:
   - name: IMAGE_TAG
     required: true
   - name: IMAGE
-    value: quay.io/redhat-services-prod/rh-platform-experien-tenant/frontend-starter-app
+    value: quay.io/redhat-services-prod/rh-platform-experien-tenant/experience-ui-starter-app
