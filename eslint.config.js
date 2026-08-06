@@ -4,7 +4,7 @@ const fecPlugin = require('@redhat-cloud-services/eslint-config-redhat-cloud-ser
 const tsParser = require('@typescript-eslint/parser');
 const tseslint = require('typescript-eslint');
 
-const experienceUiPlugin = require('@experience-ui/eslint-plugin');
+const experienceUiPlugin = require('experience-ui-governance/eslint-plugin');
 
 module.exports = defineConfig(
   fecPlugin,
