@@ -1,7 +1,10 @@
 {
   "name": "experience-ui-starter-app",
   "version": "1.2.0",
-  "private": false,
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
     "node": ">=18.20.8",
     "npm": ">=8.19.4"

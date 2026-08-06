@@ -4,9 +4,7 @@ const fecPlugin = require('@redhat-cloud-services/eslint-config-redhat-cloud-ser
 const tsParser = require('@typescript-eslint/parser');
 const tseslint = require('typescript-eslint');
 
-const requireUseTableState = require('./eslint-rules/require-use-table-state');
-const enforceStoryPatterns = require('./eslint-rules/enforce-story-patterns');
-const noDirectUserType = require('./eslint-rules/no-direct-user-type');
+const experienceUiPlugin = require('@experience-ui/eslint-plugin');
 
 module.exports = defineConfig(
   fecPlugin,
@@ -34,13 +32,7 @@ module.exports = defineConfig(
       parser: tsParser,
     },
     plugins: {
-      'experience-ui': {
-        rules: {
-          'require-use-table-state': requireUseTableState,
-          'enforce-story-patterns': enforceStoryPatterns,
-          'no-direct-user-type': noDirectUserType,
-        },
-      },
+      'experience-ui': experienceUiPlugin,
     },
     rules: {
       'react/prop-types': 'off',

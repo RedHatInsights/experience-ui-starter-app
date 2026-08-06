@@ -1,0 +1,8 @@
+{
+  "name": "@experience-ui/eslint-plugin",
+  "version": "1.0.0",
+  "description": "Shared ESLint rules for Experience UI team repos",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "keywords": ["eslint", "eslintplugin", "experience-ui", "hcc"]
+}
