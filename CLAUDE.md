@@ -1,7 +1,11 @@
 # Experience UI Starter App
 
-> See `AGENTS.md` for the current architecture patterns: feature islands,
-> ServiceContext DI, TanStack Query, and custom ESLint governance rules.
+## Team Standards
+
+Read `node_modules/experience-ui-governance/standards/index.md` for team-wide rules.
+This repo follows all standards defined there. The sections below are repo-specific context.
+
+> See `AGENTS.md` for architecture patterns specific to this starter template.
 
 **Seed repository** for creating new Red Hat Hybrid Cloud Console (HCC) frontend applications. Use this as a template when starting a new HCC UI project — it provides a working foundation with all required integrations, build tooling, and testing infrastructure pre-configured.
 
