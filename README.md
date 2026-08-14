@@ -61,3 +61,4 @@ This project includes component tests using Cypress for testing React components
 
 Component tests are fast, reliable, and don't require a running server. They're perfect for testing individual UI components with different props and states.
 
+
